@@ -44,3 +44,7 @@
 cd frontend
 npm install
 npm run dev
+```
+
+### 🔹 后端运行
+打开 IDEA，直接运行 SpringBoot 主类 PetCourseBackendApplication.java
