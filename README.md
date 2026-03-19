@@ -7,9 +7,9 @@
 
 ## 🚀 技术栈
 
-- 前端: Vue + Axios + Element UI + ECharts  
-- 后端: SpringBoot + MyBatis  
-- 数据库: MySQL  
+前端: Vue + Axios + Element UI + ECharts  
+后端: SpringBoot + MyBatis  
+数据库: MySQL  
 
 ---
 
@@ -30,16 +30,15 @@
 
 ## 🌟 项目亮点
 
-- ✅ 前后端分离架构（Vue + SpringBoot）  
-- ✅ 数据可视化（ECharts 学习统计）  
-- ✅ 游戏化设计（排行榜、勋章、技能树）  
-- ✅ 宠物选课模式（创新点）  
-- ✅ 简单推荐算法（课程推荐功能）  
+ 前后端分离架构（Vue + SpringBoot）  
+ 数据可视化（ECharts 学习统计）  
+ 游戏化设计（排行榜、勋章、技能树）  
+ 宠物选课模式（创新点）  
+ 简单推荐算法（课程推荐功能）  
 
 ---
 
 ## 🖥 项目结构
-
 
 pet-course-system
 │
