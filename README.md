@@ -39,12 +39,12 @@
 
 ## ⚙️ 运行方式
 
-### 🔹 前端运行
+### 前端运行
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-### 🔹 后端运行
+### 后端运行
 打开 IDEA，直接运行 SpringBoot 主类 PetCourseBackendApplication.java
