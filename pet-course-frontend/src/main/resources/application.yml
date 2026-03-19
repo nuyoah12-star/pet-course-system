@@ -1,0 +1,64 @@
+server:
+  port: 8080
+
+spring:
+  # 数据库配置（保留原有配置，适配MySQL）
+  datasource:
+    url: jdbc:mysql://localhost:3306/pet_course_system?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: 181220
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # 文件上传配置（保留，适配头像上传）
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      enabled: true
+
+  # 静态资源配置（修复冲突，精准映射上传文件）
+  web:
+    mvc:
+      static-path-pattern: /**  # 修复：改为通用匹配，避免接口请求被拦截
+    resources:
+      static-locations:
+        - file:C:/Users/Administrator/Desktop/pet-course-backend/uploads/  # 本地上传文件夹
+        - classpath:/static/  # 默认静态资源目录
+      add-mappings: true
+      # 禁用缓存（防止图片更新不生效）
+      chain:
+        cache:
+          enabled: false
+      cache:
+        period: 0
+
+# MyBatis配置（适配推荐功能的Mapper，支持注解+XML）
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true  # 必须：下划线转驼峰，适配数据库字段
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 开发环境打印SQL
+    use-generated-keys: true  # 新增：支持主键自增
+    default-statement-timeout: 30  # 新增：SQL超时时间
+  mapper-locations: classpath:mapper/**/*.xml  # Mapper XML文件扫描
+  type-aliases-package: com.changda.petcoursebackend.entity  # 实体类别名
+  type-handlers-package: com.changda.petcoursebackend.mapper  # Mapper接口扫描
+
+# 日志配置（适配StatsController和推荐功能调试）
+logging:
+  level:
+    com.changda.petcoursebackend.controller: INFO    # 控制器日志
+    com.changda.petcoursebackend.service: DEBUG     # 服务层日志（调试推荐逻辑）
+    com.changda.petcoursebackend.mapper: DEBUG      # Mapper日志（打印SQL参数）
+    org.springframework: WARN                       # 关闭Spring冗余日志
+    com.mysql.cj: WARN                              # 关闭MySQL冗余日志
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n"  # 新增：日志格式美化
+
+# 自定义配置（统一管理路径，避免硬编码）
+custom:
+  upload:
+    path: C:/Users/Administrator/Desktop/pet-course-backend/uploads/
+  # 新增：推荐功能相关配置（可选）
+  recommend:
+    hot-top-limit: 3  # 热门课程TOP3限制
+    course-limit: 5   # 推荐课程最大数量
