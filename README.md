@@ -28,22 +28,18 @@
 
 ⚙️ 运行方式
 前端运行
-bash
-运行
-# 进入前端目录
+```bash
 cd frontend
-# 安装项目依赖
 npm install
-# 启动前端项目
 npm run dev
+```
+
 后端运行
 方式 1（推荐）：打开 IDEA，直接运行 SpringBoot 主类 PetCourseBackendApplication.java
 方式 2（需配置 Maven 环境）：
-bash
-运行
-# 进入后端目录（可选，若已在后端目录则无需执行）
+```bash
 cd pet-course-backend
-# Maven 启动 SpringBoot 项目
 mvn spring-boot:run
+```
 
 
