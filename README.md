@@ -27,9 +27,7 @@
 - 简单推荐系统（课程推荐）
 
 ## 启动方式
-前端：
-npm install
-npm run dev
+前端：npm install
+      npm run dev
 
-后端：
-运行 SpringBoot 项目
+后端：运行 SpringBoot 项目
